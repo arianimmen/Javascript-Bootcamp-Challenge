@@ -16,14 +16,14 @@ let isSortedByPriceDesc = 1;
 let isSortedByDate = 1;
 let isSortedByPrice = 0;
 
-class Ui {
-  // Starting up the ui
+class Transaction {
+  // Starting up the Transaction
   async setApp() {
     this.addEventListeners();
 
-    Ui.btnSelect(); // Selecting Transactions date (make it bold)
+    Transaction.btnSelect(); // Selecting Transactions date (make it bold)
 
-    Ui.searchLogic();
+    Transaction.searchLogic();
   }
 
   addEventListeners() {
@@ -31,7 +31,7 @@ class Ui {
     priceSortBtn.addEventListener("click", this.sortPriceBtnLogic);
     searchInput.addEventListener("input", (e) => {
       const value = e.target.value;
-      Ui.searchLogic(value);
+      Transaction.searchLogic(value);
     });
   }
 
@@ -40,7 +40,7 @@ class Ui {
     let row = 1;
 
     data.forEach((item) => {
-      resultHTML += Ui.createHTML(item, row);
+      resultHTML += Transaction.createHTML(item, row);
       row += 1;
     });
 
@@ -64,9 +64,9 @@ class Ui {
     isSortedByPrice = 0;
 
     // Selecting our clicked sort method
-    Ui.btnSelect();
+    Transaction.btnSelect();
 
-    Ui.searchLogic(); // Updating the DOM
+    Transaction.searchLogic(); // Updating the DOM
   }
 
   async sortPriceBtnLogic() {
@@ -86,9 +86,9 @@ class Ui {
     isSortedByDate = 0;
 
     // Selecting our clicked sort method
-    Ui.btnSelect();
+    Transaction.btnSelect();
 
-    Ui.searchLogic(); // Updating the DOM
+    Transaction.searchLogic(); // Updating the DOM
   }
 
   static async searchLogic(value = searchInput.value) {
@@ -100,7 +100,7 @@ class Ui {
           isSortedByDateDesc,
           "date"
         );
-        Ui.updateDOM(dataSortedByDate);
+        Transaction.updateDOM(dataSortedByDate);
         break;
       case 0:
         const dataSortedByPrice = await storage.searchAndSort(
@@ -108,7 +108,7 @@ class Ui {
           isSortedByPriceDesc,
           "price"
         );
-        Ui.updateDOM(dataSortedByPrice);
+        Transaction.updateDOM(dataSortedByPrice);
         break;
     }
   }
@@ -134,7 +134,7 @@ class Ui {
     }</td>
         <td class="price">${data.price.toLocaleString()}</td>
         <td>${data.refId}</td>
-        <td>${Ui.converToReadableDate(data.date)}</td>
+        <td>${Transaction.converToReadableDate(data.date)}</td>
     </tr>`;
   }
 
@@ -155,4 +155,4 @@ class Ui {
   }
 }
 
-export default new Ui();
+export default new Transaction();

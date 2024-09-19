@@ -56,6 +56,7 @@
 body {
   font-family: sans-serif;
   background-color: var(--color-secondary-100);
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -132,7 +133,7 @@ input {
 }
 
 .header__searchForm input {
-  padding: 1.1rem 1.1rem;
+  padding: 1.1rem 1.5rem;
   width: 100%;
   outline: none;
   border-top: 1px solid var(--color-secondary-200);
@@ -149,11 +150,7 @@ input::placeholder {
 
 @media screen and (min-width: 1024px) {
   .header__searchForm input {
-    padding: 1.1rem 1.1rem;
     width: 450px;
-    outline: none;
-    border-radius: 0px 18px 18px 0px;
-    background-color: var(--color-secondary-0);
   }
 
   .header__searchForm {
@@ -168,6 +165,8 @@ input::placeholder {
 /* ---------------------- Main ---------------------------- */
 
 .main {
+  display: flex;
+  justify-content: center;
   width: 100%;
   padding: 0rem 3rem;
 }
@@ -252,8 +251,8 @@ input::placeholder {
 }
 
 .main__transactions table th {
+  user-select: none;
   border: 1px solid var(--color-secondary-100);
-
   font-weight: 700;
   color: var(--color-secondary-400);
   background-color: var(--color-secondary-100);
@@ -328,4 +327,8 @@ td {
 .price {
   font-weight: 500;
   color: var(--color-secondary-800);
+}
+
+.--transactions-hidden {
+  display: none;
 }

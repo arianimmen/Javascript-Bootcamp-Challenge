@@ -11,7 +11,8 @@
   <body>
     <section class="header container">
       <h1 class="header__title">لیست تراکنش ها</h1>
-      <form class="header__searchForm">
+      <!-- .--searchBar-hidden -->
+      <form class="header__searchForm --searchBar-hidden">
         <input
           type="text"
           name="search"
@@ -23,11 +24,10 @@
     </section>
 
     <section class="main container">
-      <button class="main__transactionsBtn --btn-hidden">
-        بارگذاری تراکنش ها
-      </button>
+      <!-- --btn-hidden -->
+      <button class="main__transactionsBtn">بارگذاری تراکنش ها</button>
 
-      <div class="main__transactions__section">
+      <div class="main__transactions__section --transactions-hidden">
         <h2 class="main__title">لیست تراکنش های شما</h2>
         <div class="main__transactions">
           <table class="main__transactions__table">
