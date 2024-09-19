@@ -1,11 +1,14 @@
-import Storage from "./storage.js";
+import storage from "./storage.js";
 
-//------------- Table Container -------------
+//------------- Table Container -----------------
 const tableContainer = document.querySelector(".tbody");
 
-// ------------------------------------
+// -------------  Sorting Btns ------------------
 const dateSortBtn = document.querySelector(".dateTh");
 const priceSortBtn = document.querySelector(".priceTh");
+
+// ----------------- Search ---------------------
+const searchInput = document.querySelector("#search");
 
 let isSortedByDateDesc = 1;
 let isSortedByPriceDesc = 1;
@@ -20,14 +23,16 @@ class Ui {
 
     Ui.btnSelect(); // Selecting Transactions date (make it bold)
 
-    const data = await Storage.sortByDate(); // Our data will be sorted by Date by default
-
-    Ui.updateDOM(data); // Updating the DOM
+    Ui.searchLogic();
   }
 
   addEventListeners() {
     dateSortBtn.addEventListener("click", this.sortDateBtnLogic);
     priceSortBtn.addEventListener("click", this.sortPriceBtnLogic);
+    searchInput.addEventListener("input", (e) => {
+      const value = e.target.value;
+      Ui.searchLogic(value);
+    });
   }
 
   static updateDOM(data) {
@@ -61,8 +66,7 @@ class Ui {
     // Selecting our clicked sort method
     Ui.btnSelect();
 
-    const data = await Storage.sortByDate(isSortedByDateDesc); // Our data will be sorted by Date
-    Ui.updateDOM(data); // Updating the DOM
+    Ui.searchLogic(); // Updating the DOM
   }
 
   async sortPriceBtnLogic() {
@@ -84,8 +88,29 @@ class Ui {
     // Selecting our clicked sort method
     Ui.btnSelect();
 
-    const data = await Storage.sortByPrice(isSortedByPriceDesc); // Our data will be sorted by Date
-    Ui.updateDOM(data); // Updating the DOM
+    Ui.searchLogic(); // Updating the DOM
+  }
+
+  static async searchLogic(value = searchInput.value) {
+    // Checking the current Status and updating the DOM
+    switch (isSortedByDate) {
+      case 1:
+        const dataSortedByDate = await storage.searchAndSort(
+          value,
+          isSortedByDateDesc,
+          "date"
+        );
+        Ui.updateDOM(dataSortedByDate);
+        break;
+      case 0:
+        const dataSortedByPrice = await storage.searchAndSort(
+          value,
+          isSortedByPriceDesc,
+          "price"
+        );
+        Ui.updateDOM(dataSortedByPrice);
+        break;
+    }
   }
 
   // Selecting the selected filter (make the selected filter bold)
@@ -104,8 +129,10 @@ class Ui {
     return `
     <tr>
         <td>${row}</td>
-        <td>${data.type}</td>
-        <td>${data.price.toLocaleString()}</td>
+        <td class=${data.type == "برداشت از حساب" ? "red" : "green"}>${
+      data.type
+    }</td>
+        <td class="price">${data.price.toLocaleString()}</td>
         <td>${data.refId}</td>
         <td>${Ui.converToReadableDate(data.date)}</td>
     </tr>`;

@@ -310,3 +310,22 @@ input::placeholder {
 .rotate img {
   transform: rotate(180deg);
 }
+
+td {
+  color: var(--color-secondary-600);
+}
+
+.red {
+  font-weight: 500;
+  color: var(--color-red-500);
+}
+
+.green {
+  font-weight: 500;
+  color: var(--color-success);
+}
+
+.price {
+  font-weight: 500;
+  color: var(--color-secondary-800);
+}
