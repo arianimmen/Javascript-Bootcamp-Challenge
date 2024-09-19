@@ -22,7 +22,9 @@ class Storage {
   }
 
   // Sorting data by Price
-  async sortByPrice(status = "desc") {
+  async sortByPrice(isDesc = 1) {
+    const status = isDesc ? "desc" : "asc";
+
     try {
       const response = await axios.get(
         `http://localhost:3000/transactions?_sort=price&_order=${status}`
@@ -32,6 +34,19 @@ class Storage {
       console.log(err);
     }
   }
+
+  // Sorting data by Price
+  async sortByDate(isDesc = 1) {
+    const status = isDesc ? "desc" : "asc";
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/transactions?_sort=date&_order=${status}`
+      );
+      return response.data;
+    } catch (error) {
+      console.log(err);
+    }
+  }
 }
- 
+
 export default new Storage();

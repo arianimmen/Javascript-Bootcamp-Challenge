@@ -1,5 +1,7 @@
 import Storage from "./storage.js";
+import Ui from "./ui.js";
 
-// const data = await Storage.sortAsc();
-// // data = getdata();
+// const data = Storage.sortByPrice();
 // console.log(data);
+
+Ui.setApp();

@@ -13,7 +13,7 @@
       <h1 class="header__title">لیست تراکنش ها</h1>
       <form class="header__searchForm">
         <input
-          type="search"
+          type="text"
           name="search"
           id="search"
           placeholder="جست و جو تراکنش..."
@@ -30,44 +30,38 @@
       <div class="main__transactions__section">
         <h2 class="main__title">لیست تراکنش های شما</h2>
         <div class="main__transactions">
-          <table>
+          <table class="main__transactions__table">
             <thead>
               <th>ردیف</th>
               <th>نوع تراکنش</th>
               <th class="priceTh">
                 <span>مبلغ</span>
-                <img src="../assets/images/arrow.svg" alt="downArrow" class="priceArrow"/>
+                <img
+                  src="../assets/images/arrow.svg"
+                  alt="downArrow"
+                  class="priceArrow"
+                />
               </th>
               <th>شماره پیگیری</th>
               <th class="dateTh">
                 <span> تاریخ تراکنش </span>
-                <img src="../assets/images/arrow.svg" alt="downArrow" class="dateArrow"/>
+                <img
+                  src="../assets/images/arrow.svg"
+                  alt="downArrow"
+                  class="dateArrow"
+                />
               </th>
             </thead>
-
-            <tr>
-              <td>10</td>
-              <td>افزایش اعتبار</td>
-              <td>1,000,000</td>
-              <td>2123234</td>
-              <td>ساعت ۱۲:۲۳۲ ۱۴۰۲/۰۳/۲۱</td>
-            </tr>
-
-            <tr>
-              <td>10</td>
-              <td>افزایش اعتبار</td>
-              <td>1,000,000000000</td>
-              <td>2123234</td>
-              <td>ساعت ۱۲:۲۳۲ ۱۴۰۲/۰۳/۲۱</td>
-            </tr>
-
-            <tr>
-              <td>10</td>
-              <td>افزایش اعتبار</td>
-              <td>1,000,000</td>
-              <td>2123234</td>
-              <td>ساعت ۱۲:۲۳۲ ۱۴۰۲/۰۳/۲۱</td>
-            </tr>
+            <tbody class="tbody">
+              <!-- 
+              <tr>
+                <td>10</td>
+                <td>افزایش اعتبار</td>
+                <td>1,000,000</td>
+                <td>2123234</td>
+                <td>ساعت ۱۲:۲۳۲ ۱۴۰۲/۰۳/۲۱</td>
+              </tr> -->
+            </tbody>
           </table>
         </div>
       </div>
