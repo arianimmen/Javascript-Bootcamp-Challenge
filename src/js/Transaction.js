@@ -18,7 +18,7 @@ let isSortedByPrice = 0;
 
 class Transaction {
   // Starting up the Transaction
-  async setApp() {
+  setApp() {
     this.addEventListeners();
 
     Transaction.btnSelect(); // Selecting Transactions date (make it bold)
@@ -47,7 +47,7 @@ class Transaction {
     tableContainer.innerHTML = resultHTML; // Updating the DOM
   }
 
-  async sortDateBtnLogic() {
+  sortDateBtnLogic() {
     // Checking if it is being activated so we don't toggle it and show the default
     if (!isSortedByDate) {
       isSortedByDateDesc = 1;
@@ -69,7 +69,7 @@ class Transaction {
     Transaction.searchLogic(); // Updating the DOM
   }
 
-  async sortPriceBtnLogic() {
+  sortPriceBtnLogic() {
     // Checking if it is being activated so we don't toggle it and show the default
     if (!isSortedByPrice) {
       isSortedByPriceDesc = 1;
