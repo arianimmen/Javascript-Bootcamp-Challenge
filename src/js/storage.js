@@ -7,7 +7,7 @@ class Storage {
       );
       return response.data;
     } catch (error) {
-      console.log(err);
+      alert(error);
     }
   }
 }
