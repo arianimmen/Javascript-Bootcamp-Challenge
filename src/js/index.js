@@ -1,6 +1,6 @@
-import Storage from "./storage.js";
 import Transaction from "./Transaction.js";
 
+// ---------------- Selecting from HTML ------------------------------
 const transactionsBtn = document.querySelector(".main__transactionsBtn");
 const searchForm = document.querySelector(".header__searchForm");
 const transactionsSection = document.querySelector(
