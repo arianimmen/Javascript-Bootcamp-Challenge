@@ -13,6 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     searchForm.classList.remove("--searchBar-hidden");
     transactionsSection.classList.remove("--transactions-hidden");
   });
-});
 
-Transaction.setApp();
+  Transaction.setApp();
+});
